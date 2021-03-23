@@ -1,6 +1,8 @@
 package com.unipacifico.peluqueria.clases;
 
-public class Cliente {
+import java.io.Serializable;
+
+public class Cliente implements Serializable {
     String telefono, nombre, apellido, direccion, contraseña;
 
     public Cliente() {

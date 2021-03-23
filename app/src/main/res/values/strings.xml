@@ -21,4 +21,11 @@
     <string name="contraseña">Ingresa una contraseña</string>
     <string name="barberia">Bienvenido a tu barberia KC</string>
     <string name="registrate">Presiona aqui para registrarte</string>
+    <string name="nombre_v">Nombre del Cliente</string>
+    <string name="numero_v">Numero de telefono del cliente</string>
+    <string name="reserva">Reserva tu cita</string>
+    <string name="mickey">Mickey - $3.000</string>
+    <string name="barba">Barba - $5.000</string>
+    <string name="clientes">Corte de cabello - $10.000</string>
+    <string name="seleccion">Seleccione el servicio que desea:</string>
 </resources>

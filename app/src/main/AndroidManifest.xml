@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.unipacifico.peluqueria">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
@@ -11,13 +11,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Peluqueria">
+        android:theme="@style/Theme.Peluqueria"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".vistas.cliente.Cliente_V"></activity>
         <activity
             android:name=".Administrador_V"
             android:label="@string/title_activity_administrador__v"
-            android:theme="@style/Theme.Peluqueria.NoActionBar"></activity>
+            android:theme="@style/Theme.Peluqueria.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
