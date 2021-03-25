@@ -130,7 +130,14 @@ public class MainActivity extends AppCompatActivity {
             }
             if (response.equals(Estado_Registra)) {
                 clientes.add(new Cliente(telefono, nombre, apellido, direccion, contrasena));
-                Toast.makeText(getApplicationContext(), "Fecilitaciones", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Registrado con exito", Toast.LENGTH_LONG).show();
+                ir_sesion_v.setVisibility(View.VISIBLE);
+                ir_registro_v.setVisibility(View.GONE);
+                telefono_registro_cliente.setText("");
+                nombre_registro_cliente.setText("");
+                apellido_registro_cliente.setText("");
+                direccion_registro_cliente.setText("");
+                contrasena_registro_cliente.setText("");
             }
         }, error -> {
             Toast.makeText(getApplicationContext(), "Ocurrio un error en nuestro sistema, intentelo luego", Toast.LENGTH_LONG).show();
@@ -189,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent intentCliente = new Intent(getBaseContext(), Cliente_V.class);
                         intentCliente.putExtra("cliente", clientes);
                         startActivity(intentCliente);
+                        finish();
 
                     }
                 } catch (Exception e) {

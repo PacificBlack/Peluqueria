@@ -28,4 +28,63 @@
     <string name="barba">Barba - $5.000</string>
     <string name="clientes">Corte de cabello - $10.000</string>
     <string name="seleccion">Seleccione el servicio que desea:</string>
+    <string name="bienvenido">Bienvenido a su Barberia de confianza</string>
+    <string name="barbero">Selecciona a un barbero</string>
+    <string name="dia">Ingresa el dia que quieres reservar</string>
+    <string name="horario">Selecciona un horario</string>
+    <string name="cancelar">Cancelar reserva</string>
+    <string name="horario_dia">Horario de la Mañana</string>
+    <string name="horario_tarde">Horario de la Tarde</string>
+    <string name="horario_noche">Horario de la noche</string>
+    <string name="completar_reserva">Completar Reserva</string>
+    <string name="reservada">Peluqueada Reservada</string>
+    <string name="pelquero">Peluquero</string>
+    <string name="precio">Precio servicio</string>
+    <string name="estado">Estado reserva</string>
+    <string name="fecha">Fecha cita</string>
+    <string name="reservas">Peluqueadas Reservadas</string>
+
+    <string-array name="Turnos_Mañana_Completo">
+        <item>8:00 am</item>
+        <item>8:55 am</item>
+        <item>9:50 am</item>
+        <item>10:45 am</item>
+        <item>11:40 am</item>
+        <item>12:35 pm</item>
+    </string-array>
+    <string-array name="Turnos_Mañana_Diez">
+        <item>8:45 am</item>
+        <item>9:40 am</item>
+        <item>10:35 am</item>
+        <item>11:30 am</item>
+        <item>12:25 pm</item>
+        <item>12:45 pm</item>
+    </string-array>
+
+
+    <string-array name="Turnos_Tarde_Completo">
+        <item>2:00 pm</item>
+        <item>2:55 pm</item>
+        <item>3:50 pm</item>
+        <item>4:45 pm</item>
+        <item>5:40 pm</item>
+    </string-array>
+    <string-array name="Turnos_Tarde_Diez">
+        <item>2:45 pm</item>
+        <item>3:40 pm</item>
+        <item>4:35 pm</item>
+        <item>5:30 pm</item>
+    </string-array>
+
+
+    <string-array name="Turnos_Noche_Completo">
+        <item>7:30 pm</item>
+        <item>8:25 pm</item>
+        <item>9:20 pm</item>
+    </string-array>
+    <string-array name="Turnos_Noche_Diez">
+        <item>8:15 pm</item>
+        <item>9:10 pm</item>
+    </string-array>
+
 </resources>

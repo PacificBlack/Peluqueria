@@ -1,154 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/black"
     tools:context=".vistas.cliente.Cliente_V">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
-        android:elevation="20dp"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="15dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/row_imagen"
-                android:layout_width="186dp"
-                android:layout_height="150dp"
-                android:layout_weight="1"
-                android:scaleType="fitCenter"
-                app:srcCompat="@drawable/barberia" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/nombre_v_clientes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/nombre_v"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/telefono_v_clientes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/numero_v"
-                    android:textAlignment="center"
-                    android:textColor="@color/white"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:id="@+id/direccion_v_clientes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5sp"
-                    android:fontFamily="sans-serif-light"
-                    android:text="@string/direccion"
-                    android:textAlignment="center"
-                    android:textColor="@color/white" />
-
-
-            </LinearLayout>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-
         <TextView
             android:layout_width="wrap_content"
+            android:layout_marginTop="20dp"
             android:textSize="20dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="sans-serif-light"
-            android:text="@string/seleccion"
+            android:text="@string/bienvenido"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textStyle="bold" />
 
-        <CheckBox
-            android:id="@+id/mickey_v_clientes"
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
-            android:textColor="@color/white"
 
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/mickey" />
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            android:elevation="20dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="15dp">
 
-        <CheckBox
-            android:id="@+id/barba_v_clientes"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/row_imagen"
+                    android:layout_width="186dp"
+                    android:layout_height="150dp"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/barberia" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/nombre_v_clientes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/nombre_v"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/telefono_v_clientes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/numero_v"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/direccion_v_clientes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5sp"
+                        android:fontFamily="sans-serif-light"
+                        android:text="@string/direccion"
+                        android:textAlignment="center"
+                        android:textColor="@color/white" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:textColor="@color/white"
-            android:text="@string/barba" />
+            android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/corte_v_clientes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:text="@string/clientes" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/seleccion"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            android:textColor="@color/black"
-            app:cornerRadius="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
-            android:fontFamily="@font/amiko_bold"
-            android:layout_gravity="center"
-            android:text="@string/reserva" />
+            <CheckBox
+                android:id="@+id/mickey_v_clientes"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:onClick="verificados"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/mickey" />
+
+            <CheckBox
+                android:id="@+id/barba_v_clientes"
+                android:layout_width="wrap_content"
+                android:onClick="verificados"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/barba" />
+
+            <CheckBox
+                android:id="@+id/corte_v_clientes"
+                android:layout_width="wrap_content"
+                android:onClick="verificados"
+                  android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:text="@string/clientes" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reservar"
+                android:textColor="@color/black"
+                app:cornerRadius="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/amiko_bold"
+                android:layout_gravity="center"
+                android:text="@string/reserva" />
+
+        </LinearLayout>
 
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
-
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"/>
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:textSize="20dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/reservas"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reservas_v_clientes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"/>
+        </LinearLayout>
     </LinearLayout>
 
 
-</LinearLayout>
+
+</ScrollView>
