@@ -14,7 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Peluqueria"
         android:usesCleartextTraffic="true">
-        <activity android:name=".vistas.cliente.Cliente_V"></activity>
+        <activity android:name=".vistas.trabajador.Trabajador_V"></activity>
+        <activity android:name=".vistas.cliente.Cliente_V" />
         <activity
             android:name=".Administrador_V"
             android:label="@string/title_activity_administrador__v"

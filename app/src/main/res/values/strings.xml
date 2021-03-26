@@ -43,6 +43,11 @@
     <string name="estado">Estado reserva</string>
     <string name="fecha">Fecha cita</string>
     <string name="reservas">Peluqueadas Reservadas</string>
+    <string name="cliente">Cita Reservada</string>
+    <string name="terminar">Despachar Cliente</string>
+    <string name="bienvenido2">Bienvenido a tu centro de atencion</string>
+    <string name="servicios">Servicios cita</string>
+    <string name="end">Ingrese el valor recibido</string>
 
     <string-array name="Turnos_Mañana_Completo">
         <item>8:00 am</item>

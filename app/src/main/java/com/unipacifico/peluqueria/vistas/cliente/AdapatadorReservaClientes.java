@@ -58,20 +58,20 @@ public class AdapatadorReservaClientes extends RecyclerView.Adapter<AdapatadorRe
         holder.fecha.setText(listaReservaCLientes.get(position).getFecha_servico());
 
         String estado = listaReservaCLientes.get(position).getEstado_servicio();
-        String fecha = listaReservaCLientes.get(position).getFecha_servico();
+        String id = listaReservaCLientes.get(position).getId_reserva();
 
         if (estado.equals("Esperando")) {
             holder.cancelar.setOnClickListener(v -> {
-                Borrar(fecha);
+                Borrar(id);
             });
         } else {
             holder.cancelar.setVisibility(View.GONE);
         }
     }
 
-    public void Borrar(String fecha) {
+    public void Borrar(String id) {
         StringRequest objectRequest_peluqueros;
-        String url_peluqueros = Constantes.DireccionServidor + "Reservas/wsJSONCancelar.php?fecha="+fecha;
+        String url_peluqueros = Constantes.DireccionServidor + "Reservas/wsJSONCancelar.php?id="+id;
         objectRequest_peluqueros = new StringRequest(Request.Method.GET, url_peluqueros, response -> {
             Log.i("Respuesta",response);
             if (response.equals(Estado_Servicio_Cancel)) {

@@ -27,8 +27,10 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.unipacifico.peluqueria.DB.Gestion;
 import com.unipacifico.peluqueria.clases.Cliente;
+import com.unipacifico.peluqueria.clases.Trabajador;
 import com.unipacifico.peluqueria.costantes.Constantes;
 import com.unipacifico.peluqueria.vistas.cliente.Cliente_V;
+import com.unipacifico.peluqueria.vistas.trabajador.Trabajador_V;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     TextView telefono_registro_cliente, nombre_registro_cliente, apellido_registro_cliente, direccion_registro_cliente, contrasena_registro_cliente;
     Button registrar_cliente, inicio_sesion;
     ArrayList<Cliente> clientes = new ArrayList<>();
+    ArrayList<Trabajador> trabaja = new ArrayList<>();
 
     ProgressDialog progressDoalog;
 
@@ -211,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
             Pattern regex = Pattern.compile("\\b" + Pattern.quote(resul) + "\\b", Pattern.CASE_INSENSITIVE);
             Matcher match = regex.matcher(error.toString());
             if (match.find()) {
-                Toast.makeText(getApplicationContext(), "Ese usuario no existe, llama a la otra funcion", Toast.LENGTH_LONG).show();
+                InicioTrabajador(telefono,contrasena);
             }
             progressDoalog.cancel();
         }
@@ -221,6 +224,61 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void InicioTrabajador(String telefono, String contrasena) {
+
+        progressDoalog.show();
+        JsonObjectRequest stringRequest_inicio;
+        String url_registro = Constantes.DireccionServidor + "Trabajadores/wsJSONInicioTrabajador.php?telefono=" + telefono + "&&contraseña=" + contrasena;
+        stringRequest_inicio = new JsonObjectRequest(Request.Method.GET, url_registro, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                Log.i("Trabadores", response.toString());
+
+                Trabajador trabajador = null;
+                JSONArray jsonArrayTrabajador = response.optJSONArray("trabajador");
+                trabaja.clear();
+
+                try {
+                    for (int i = 0; i < jsonArrayTrabajador.length(); i++) {
+                        trabajador = new Trabajador();
+                        JSONObject jsonObject = null;
+                        jsonObject = jsonArrayTrabajador.getJSONObject(i);
+
+                        trabajador.setIdentificacion(jsonObject.getString("identificacion"));
+                        trabajador.setNombre(jsonObject.getString("nombre"));
+                        trabajador.setDireccion(jsonObject.getString("direccion"));
+                        trabajador.setTelefono(jsonObject.getString("telefono"));
+                        trabajador.setContraseña(jsonObject.getString("contrasena"));
+
+                        trabaja.add(trabajador);
+
+                        progressDoalog.cancel();
+
+                        Intent intentTrabajadores = new Intent(getBaseContext(), Trabajador_V.class);
+                        intentTrabajadores.putExtra("trabajador", trabaja);
+                        startActivity(intentTrabajadores);
+                        finish();
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, error -> {
+            Log.i("Error", error.toString());
+
+            String resul = "Noexiste";
+            Pattern regex = Pattern.compile("\\b" + Pattern.quote(resul) + "\\b", Pattern.CASE_INSENSITIVE);
+            Matcher match = regex.matcher(error.toString());
+            if (match.find()) {
+                Toast.makeText(getApplicationContext(), "Ese usuario no existe, llama a la otra funcion", Toast.LENGTH_LONG).show();
+            }
+            progressDoalog.cancel();
+        }
+        );
+        RequestQueue request_inicio = Volley.newRequestQueue(getApplicationContext());
+        request_inicio.add(stringRequest_inicio);
     }
 
 }

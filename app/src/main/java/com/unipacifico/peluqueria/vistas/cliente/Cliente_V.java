@@ -454,6 +454,7 @@ public class Cliente_V extends AppCompatActivity {
                     JSONObject jsonObject = null;
                     jsonObject = jsonArrayReservas.getJSONObject(i);
 
+                    reserv.setId_reserva(jsonObject.getString("id_reserva"));
                     reserv.setNumero_cliente(jsonObject.getString("telefono_cliente"));
                     reserv.setIdententificacion_peluquero(jsonObject.getString("nombre"));
                     reserv.setDetalle_servicio(jsonObject.getString("detalle_servicio"));
