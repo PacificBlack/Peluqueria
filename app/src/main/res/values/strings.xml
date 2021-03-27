@@ -91,5 +91,16 @@
         <item>8:15 pm</item>
         <item>9:10 pm</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ganancias">Ganancias</string>
+    <string name="empleados">Empleados</string>
+    <string name="clien">Clientes</string>
+    <string name="client">Cliente</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="editar">Editar</string>
+    <string name="modificar">Modificar</string>
+    <string name="numeroc">Ingresa el numero a modificar</string>
+    <string name="buscar">Ingrese una fecha</string>
 
 </resources>

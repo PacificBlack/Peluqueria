@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,15 +19,14 @@ import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.Response.ErrorListener;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.unipacifico.peluqueria.DB.Gestion;
+import com.unipacifico.peluqueria.clases.Administrador;
 import com.unipacifico.peluqueria.clases.Cliente;
 import com.unipacifico.peluqueria.clases.Trabajador;
 import com.unipacifico.peluqueria.costantes.Constantes;
+import com.unipacifico.peluqueria.vistas.administrador.Administrador_V;
 import com.unipacifico.peluqueria.vistas.cliente.Cliente_V;
 import com.unipacifico.peluqueria.vistas.trabajador.Trabajador_V;
 
@@ -52,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     Button registrar_cliente, inicio_sesion;
     ArrayList<Cliente> clientes = new ArrayList<>();
     ArrayList<Trabajador> trabaja = new ArrayList<>();
+    ArrayList<Administrador> admin = new ArrayList<>();
 
     ProgressDialog progressDoalog;
 
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void RegistroCliente(String telefono, String nombre, String apellido, String direccion, String contrasena) {
+    private void RegistroCliente(String telefono, String nombre, String apellido, String direccion, String contrasena) {
 
         progressDoalog.show();
 
@@ -165,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
         request_registro.add(stringRequest_registro);
     }
 
-    public void InicioCliente(String telefono, String contrasena) {
+    private void InicioCliente(String telefono, String contrasena) {
 
         progressDoalog.show();
         JsonObjectRequest stringRequest_inicio;
@@ -214,7 +213,7 @@ public class MainActivity extends AppCompatActivity {
             Pattern regex = Pattern.compile("\\b" + Pattern.quote(resul) + "\\b", Pattern.CASE_INSENSITIVE);
             Matcher match = regex.matcher(error.toString());
             if (match.find()) {
-                InicioTrabajador(telefono,contrasena);
+                InicioTrabajador(telefono, contrasena);
             }
             progressDoalog.cancel();
         }
@@ -223,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
         request_inicio.add(stringRequest_inicio);
     }
 
-    public void InicioTrabajador(String telefono, String contrasena) {
+    private void InicioTrabajador(String telefono, String contrasena) {
 
         progressDoalog.show();
         JsonObjectRequest stringRequest_inicio;
@@ -272,7 +271,65 @@ public class MainActivity extends AppCompatActivity {
             Pattern regex = Pattern.compile("\\b" + Pattern.quote(resul) + "\\b", Pattern.CASE_INSENSITIVE);
             Matcher match = regex.matcher(error.toString());
             if (match.find()) {
-                Toast.makeText(getApplicationContext(), "Ese usuario no existe, llama a la otra funcion", Toast.LENGTH_LONG).show();
+                InicioAdmin(telefono, contrasena);
+            }
+            progressDoalog.cancel();
+        }
+        );
+        RequestQueue request_inicio = Volley.newRequestQueue(getApplicationContext());
+        request_inicio.add(stringRequest_inicio);
+    }
+
+    private void InicioAdmin(String telefono, String contrasena) {
+
+        progressDoalog.show();
+        JsonObjectRequest stringRequest_inicio;
+        String url_registro = Constantes.DireccionServidor + "Administrador/wsJSONInicioAdministrador.php?telefono=" + telefono + "&&contraseña=" + contrasena;
+        stringRequest_inicio = new JsonObjectRequest(Request.Method.GET, url_registro, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+                Log.i("Administrador", response.toString());
+
+                Administrador administrador = null;
+                JSONArray jsonArrayAdministrador = response.optJSONArray("administrador");
+                trabaja.clear();
+
+                try {
+                    for (int i = 0; i < jsonArrayAdministrador.length(); i++) {
+                        administrador = new Administrador();
+                        JSONObject jsonObject = null;
+                        jsonObject = jsonArrayAdministrador.getJSONObject(i);
+
+                        administrador.setIdentificacion(jsonObject.getString("identificacion"));
+                        administrador.setTelefono(jsonObject.getString("telefono"));
+                        administrador.setContrasena(jsonObject.getString("contrasena"));
+                        administrador.setNombre(jsonObject.getString("nombre"));
+
+                        admin.add(administrador);
+
+                        progressDoalog.cancel();
+
+                        Intent intentAdmin = new Intent(getBaseContext(), Administrador_V.class);
+                        intentAdmin.putExtra("administrador", trabaja);
+                        startActivity(intentAdmin);
+                        finish();
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, error -> {
+            Log.i("Error", error.toString());
+
+            String resul = "Noexiste";
+            Pattern regex = Pattern.compile("\\b" + Pattern.quote(resul) + "\\b", Pattern.CASE_INSENSITIVE);
+            Matcher match = regex.matcher(error.toString());
+            if (match.find()) {
+
+                Toast.makeText(this, "El usuario no se encuentra registrado", Toast.LENGTH_LONG).show();
             }
             progressDoalog.cancel();
         }

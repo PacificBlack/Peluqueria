@@ -9,7 +9,9 @@ public class Constantes {
     public static final String Estado_Vacio = "Vacio";
     public static final String Estado_Duplicado = "Duplicado";
     public static final String Estado_Registra = "Registrado";
+    public static final String Estado_Modificar = "Modificado";
     public static final String Estado_Error = "Error";
+    public static final String Estado_Eliminado = "Eliminado";
 
     public static final String Estado_Servicio_Espera = "Esperando";
     public static final String Estado_Servicio_Aten = "Atendido";

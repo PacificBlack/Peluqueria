@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_gravity="center"
     android:background="@color/black"
     android:gravity="center">
 
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/reserva"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -28,8 +28,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/black"
                 android:layout_gravity="center"
+                android:background="@color/black"
                 android:orientation="horizontal">
 
                 <androidx.cardview.widget.CardView
@@ -45,29 +45,30 @@
                         android:layout_height="135dp"
                         android:layout_gravity="center"
                         android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/reservaimg"
-                        tools:srcCompat="@drawable/reservaimg" />
+                        app:srcCompat="@drawable/cliente"
+                        tools:srcCompat="@drawable/cliente" />
                 </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/black"
                     android:layout_gravity="center"
+                    android:background="@color/black"
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/titolo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:fontFamily="sans-serif-light"
-                        android:text="@string/reservada"
+                        android:text="@string/client"
                         android:textAlignment="center"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/peluquero_row_clientes"
+                        android:id="@+id/nombre_row_clientes_administrador"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -79,7 +80,7 @@
                         android:textSize="14sp" />
 
                     <TextView
-                        android:id="@+id/servicios_row_clientes"
+                        android:id="@+id/telefono_row_clientes_administrador"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -90,7 +91,7 @@
                         android:textColor="@color/white" />
 
                     <TextView
-                        android:id="@+id/precio_row_clientes"
+                        android:id="@+id/apellido_row_clientes_administrador"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -101,7 +102,7 @@
                         android:textColor="@color/white" />
 
                     <TextView
-                        android:id="@+id/estado_row_clientes"
+                        android:id="@+id/direccion_row_clientes_administrador"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -112,7 +113,7 @@
                         android:textColor="@color/white" />
 
                     <TextView
-                        android:id="@+id/fecha_row_clientes"
+                        android:id="@+id/contrasena_row_clientes_administrador"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -127,18 +128,39 @@
 
             </LinearLayout>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/cancelar_row_clientes"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@color/white"
-                android:fontFamily="@font/amiko_bold"
-                android:text="@string/cancelar"
-                android:textColor="@color/black"
-                app:cornerRadius="10dp" />
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/eliminar_row_clientes_administrador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="#FF0000"
+                    android:fontFamily="@font/amiko_bold"
+                    android:text="@string/eliminar"
+                    android:textColor="@color/white"
+                    app:cornerRadius="10dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/editar_row_clientes_administrador"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/amiko_bold"
+                    android:text="@string/editar"
+                    android:textColor="@color/black"
+                    app:cornerRadius="10dp" />
+            </LinearLayout>
+
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 
 </RelativeLayout>
